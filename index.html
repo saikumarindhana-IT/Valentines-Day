@@ -29,7 +29,8 @@
       max-width: 90%;
     }
 
-    img {
+    /* Main page image (still round) */
+    .card img {
       width: 220px;
       height: 220px;
       object-fit: cover;
@@ -61,7 +62,7 @@
       background: #ffe6cc;
     }
 
-    /* Popup styles */
+    /* Popup background */
     #chocoPopup {
       display: none;
       position: fixed;
@@ -75,6 +76,7 @@
       z-index: 1000;
     }
 
+    /* Popup card */
     .popup-card {
       background: white;
       padding: 20px;
@@ -84,17 +86,20 @@
       animation: pop 0.4s ease;
     }
 
+    /* Portrait style popup image */
     .popup-card img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
+      width: 180px;
+      height: 240px;
+      border-radius: 15px;
       object-fit: cover;
       margin-bottom: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.3);
     }
 
     .popup-card h2 {
       color: #8B4513;
       font-family: 'Poppins', sans-serif;
+      font-size: 18px;
     }
 
     .popup-card button {
@@ -125,7 +130,7 @@
   <div id="chocoPopup">
     <div class="popup-card">
       <img src="Pic.jpeg" alt="My Love">
-      <h2>Enti chustunnav---Teddy Bear la Untav Nv 💖🍫</h2>
+      <h2>Enti Chustunnav -- Teddy Bear la untavv Nvv 💖🍫</h2>
       <button onclick="closePopup()">Close 💕</button>
     </div>
   </div>
@@ -142,8 +147,6 @@
 
 </body>
 </html>
-
-
 
 
 
