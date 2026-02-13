@@ -20,7 +20,6 @@ body{
   color:white;
 }
 
-/* floating hearts */
 .heart{
   position:fixed;
   bottom:-20px;
@@ -60,10 +59,7 @@ button{
   cursor:pointer;
 }
 
-/* FORCE HIDE */
-.section{
-  display:none !important;
-}
+.section{ display:none; }
 
 .box{
   background:white;
@@ -101,19 +97,19 @@ textarea{
 
 <img src="Herpic.jpeg" class="main-img">
 
-<h1>Yay!! Happy Valentines Day 💖</h1>
+<h1> Happy Valentines Day 💖</h1>
 <p>Open your surprises one by one 😘</p>
 
-<button onclick="openMenu()">Open Gifts 🎁</button>
+<button id="openBtn" onclick="openMenu()">Open Gifts 🎁</button>
 
-<!-- ================= MENU ================= -->
+<!-- MENU -->
 <div id="menu" class="section">
   <button class="gift-btn" onclick="showGift(1)">🎁 Gift 1</button>
   <button class="gift-btn" onclick="showGift(2)">😘 Gift 2</button>
   <button class="gift-btn" onclick="showGift(3)">💝 Gift 3</button>
 </div>
 
-<!-- ================= GIFT 1 ================= -->
+<!-- GIFT 1 -->
 <div id="gift1" class="section">
   <div class="box">
     <h3>Gift 1 🎁</h3>
@@ -122,7 +118,7 @@ textarea{
   </div>
 </div>
 
-<!-- ================= GIFT 2 ================= -->
+<!-- GIFT 2 -->
 <div id="gift2" class="section">
   <div class="box">
     <h3>Gift 2</h3>
@@ -131,7 +127,8 @@ textarea{
 
     <form action="https://formsubmit.co/saikumarindhana@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://saikumarindhana-it.github.io/Valentines-Day/">
+      <input type="hidden" name="_next"
+       value="https://saikumarindhana-it.github.io/Valentines-Day/?step=menu">
 
       <textarea name="message" placeholder="Tell me how you feel..." required></textarea><br>
       <button type="submit">Send 💌</button>
@@ -141,7 +138,7 @@ textarea{
   </div>
 </div>
 
-<!-- ================= GIFT 3 ================= -->
+<!-- GIFT 3 -->
 <div id="gift3" class="section">
   <div class="box">
     <h3>Gift 3 💝</h3>
@@ -149,7 +146,8 @@ textarea{
 
     <form action="https://formsubmit.co/saikumarindhana@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://saikumarindhana-it.github.io/Valentines-Day/final.html">
+      <input type="hidden" name="_next"
+       value="https://saikumarindhana-it.github.io/Valentines-Day/final.html">
 
       <textarea name="wish" placeholder="Type what you want..." required></textarea><br>
       <button type="submit">Submit 💖</button>
@@ -162,17 +160,10 @@ textarea{
 </div>
 
 <script>
-/* 🔥 HARD RESET ON LOAD — FIXES YOUR BUG */
-window.onload = function () {
-  document.getElementById("menu").style.display = "none";
-  document.getElementById("gift1").style.display = "none";
-  document.getElementById("gift2").style.display = "none";
-  document.getElementById("gift3").style.display = "none";
-};
-
 function openMenu(){
   hideAll();
   document.getElementById("menu").style.display="block";
+  document.getElementById("openBtn").style.display="none";
 }
 
 function showGift(n){
@@ -191,6 +182,16 @@ function hideAll(){
   document.getElementById("gift2").style.display="none";
   document.getElementById("gift3").style.display="none";
 }
+
+/* 🔥 SMART AUTO STATE */
+window.onload=function(){
+  const params=new URLSearchParams(window.location.search);
+  const step=params.get("step");
+
+  if(step==="menu"){
+    openMenu();
+  }
+};
 
 /* floating hearts */
 setInterval(()=>{
