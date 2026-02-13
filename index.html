@@ -125,14 +125,16 @@ textarea{
 <!-- ================= GIFT 2 ================= -->
 <div id="gift2" class="section">
 <div class="box">
-<h3>Gift 2 </h3>
+<h3>Gift 2</h3>
 <img src="watch.jpeg" class="gift-img">
 <p>How is the gift ? 💖</p>
 
 <form action="https://formsubmit.co/saikumarindhana@gmail.com" method="POST">
-<input type="hidden" name="_captcha" value="false">
-<textarea name="message" placeholder= required></textarea><br>
-<button type="submit">Send 💌</button>
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://saikumarindhana-it.github.io/Valentines-Day/">
+
+  <textarea name="message" placeholder="Tell me how you feel..." required></textarea><br>
+  <button type="submit">Send 💌</button>
 </form>
 
 <button onclick="backMenu()">⬅ Back</button>
@@ -145,10 +147,12 @@ textarea{
 <h3>Gift 3 💝</h3>
 <p>Em kavali Giftuuu? 😘</p>
 
-<form action="https://formsubmit.co/saikumarindhana@gmail.com" method="POST" onsubmit="goFinal()">
-<input type="hidden" name="_captcha" value="false">
-<textarea name="wish" placeholder="Type what you want..." required></textarea><br>
-<button type="submit">Submit 💖</button>
+<form action="https://formsubmit.co/saikumarindhana@gmail.com" method="POST">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://saikumarindhana-it.github.io/Valentines-Day/final.html">
+
+  <textarea name="wish" placeholder="Type what you want..." required></textarea><br>
+  <button type="submit">Submit 💖</button>
 </form>
 
 <button onclick="backMenu()">⬅ Back</button>
@@ -174,12 +178,6 @@ function backMenu(){
   document.getElementById("menu").style.display="block";
 }
 
-function goFinal(){
-  setTimeout(()=>{
-    window.location.href="final.html";
-  },1500);
-}
-
 /* floating hearts */
 setInterval(()=>{
   const h=document.createElement("div");
@@ -193,8 +191,6 @@ setInterval(()=>{
 
 </body>
 </html>
-
-
 
 
 
