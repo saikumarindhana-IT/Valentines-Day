@@ -60,8 +60,10 @@ button{
   cursor:pointer;
 }
 
-/* sections */
-.section{display:none;}
+/* FORCE HIDE */
+.section{
+  display:none !important;
+}
 
 .box{
   background:white;
@@ -99,83 +101,95 @@ textarea{
 
 <img src="Herpic.jpeg" class="main-img">
 
-<h1>Happy Valentines Day 💖</h1>
+<h1>Yay!! Happy Valentines Day 💖</h1>
 <p>Open your surprises one by one 😘</p>
 
 <button onclick="openMenu()">Open Gifts 🎁</button>
 
-<!-- ================= GIFT MENU ================= -->
+<!-- ================= MENU ================= -->
 <div id="menu" class="section">
-
-<button class="gift-btn" onclick="showGift(1)">🎁 Gift 1</button>
-<button class="gift-btn" onclick="showGift(2)">😘 Gift 2</button>
-<button class="gift-btn" onclick="showGift(3)">💝 Gift 3</button>
-
+  <button class="gift-btn" onclick="showGift(1)">🎁 Gift 1</button>
+  <button class="gift-btn" onclick="showGift(2)">😘 Gift 2</button>
+  <button class="gift-btn" onclick="showGift(3)">💝 Gift 3</button>
 </div>
 
 <!-- ================= GIFT 1 ================= -->
 <div id="gift1" class="section">
-<div class="box">
-<h3>Gift 1 🎁</h3>
-<p>This gift is for us — for our third year together and all the years ahead. 💞</p>
-<button onclick="backMenu()">⬅ Back</button>
-</div>
+  <div class="box">
+    <h3>Gift 1 🎁</h3>
+    <p>This gift is for us — for our third year together and all the years ahead. 💞</p>
+    <button onclick="backMenu()">⬅ Back</button>
+  </div>
 </div>
 
 <!-- ================= GIFT 2 ================= -->
 <div id="gift2" class="section">
-<div class="box">
-<h3>Gift 2</h3>
-<img src="watch.jpeg" class="gift-img">
-<p>How is the gift ? 💖</p>
+  <div class="box">
+    <h3>Gift 2</h3>
+    <img src="watch.jpeg" class="gift-img">
+    <p>How is the gift ? 💖</p>
 
-<form action="https://formsubmit.co/saikumarindhana@gmail.com" method="POST">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://saikumarindhana-it.github.io/Valentines-Day/">
+    <form action="https://formsubmit.co/saikumarindhana@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://saikumarindhana-it.github.io/Valentines-Day/">
 
-  <textarea name="message" placeholder=required></textarea><br>
-  <button type="submit">Send 💌</button>
-</form>
+      <textarea name="message" placeholder="Tell me how you feel..." required></textarea><br>
+      <button type="submit">Send 💌</button>
+    </form>
 
-<button onclick="backMenu()">⬅ Back</button>
-</div>
+    <button onclick="backMenu()">⬅ Back</button>
+  </div>
 </div>
 
 <!-- ================= GIFT 3 ================= -->
 <div id="gift3" class="section">
-<div class="box">
-<h3>Gift 3 💝</h3>
-<p>Em kavali Giftuuu? 😘</p>
+  <div class="box">
+    <h3>Gift 3 💝</h3>
+    <p>Em kavali Giftuuu? 😘</p>
 
-<form action="https://formsubmit.co/saikumarindhana@gmail.com" method="POST">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://saikumarindhana-it.github.io/Valentines-Day/final.html">
+    <form action="https://formsubmit.co/saikumarindhana@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://saikumarindhana-it.github.io/Valentines-Day/final.html">
 
-  <textarea name="wish" placeholder="Type what you want..." required></textarea><br>
-  <button type="submit">Submit 💖</button>
-</form>
+      <textarea name="wish" placeholder="Type what you want..." required></textarea><br>
+      <button type="submit">Submit 💖</button>
+    </form>
 
-<button onclick="backMenu()">⬅ Back</button>
-</div>
+    <button onclick="backMenu()">⬅ Back</button>
+  </div>
 </div>
 
 </div>
 
 <script>
+/* 🔥 HARD RESET ON LOAD — FIXES YOUR BUG */
+window.onload = function () {
+  document.getElementById("menu").style.display = "none";
+  document.getElementById("gift1").style.display = "none";
+  document.getElementById("gift2").style.display = "none";
+  document.getElementById("gift3").style.display = "none";
+};
+
 function openMenu(){
+  hideAll();
   document.getElementById("menu").style.display="block";
 }
 
 function showGift(n){
-  document.getElementById("menu").style.display="none";
+  hideAll();
   document.getElementById("gift"+n).style.display="block";
 }
 
 function backMenu(){
+  hideAll();
+  document.getElementById("menu").style.display="block";
+}
+
+function hideAll(){
+  document.getElementById("menu").style.display="none";
   document.getElementById("gift1").style.display="none";
   document.getElementById("gift2").style.display="none";
   document.getElementById("gift3").style.display="none";
-  document.getElementById("menu").style.display="block";
 }
 
 /* floating hearts */
@@ -191,8 +205,6 @@ setInterval(()=>{
 
 </body>
 </html>
-
-
 
 
 
